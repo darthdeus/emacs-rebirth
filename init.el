@@ -81,5 +81,15 @@
 ; http://www.emacswiki.org/emacs/MacOSTweaks
 ; http://paste.lisp.org/display/132476
 ; http://www.gnu.org/software/emacs/manual/html_node/eintr/index.html
+; What is smex and how it helps me? http://www.emacswiki.org/emacs/Smex
+; Setting proper frame size when emacs starts http://www.emacswiki.org/emacs/FrameSize#toc1
+;   Maybe also check better settings for default font size (and possibly keybinding zoom in/out ?)
+; !!! Yes or No p http://www.emacswiki.org/emacs/YesOrNoP
+; IDO http://www.emacswiki.org/emacs/InteractivelyDoThings
+; more ido http://www.emacswiki.org/emacs/InteractivelyDoThings#toc8
+; watch emacs screencasts http://emacsrocks.com/
+
+; My old config https://gist.github.com/darthdeus/d645f9e87db4cb8a9721
+
 
 ; http://code.org/teach
