@@ -27,7 +27,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous smex)
+				   flx flx-ido ido-ubiquitous smex )
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -60,6 +60,14 @@
 
 
 ;; TODO - check auto-fill mode
+;; (add-hook 'haskell-mode-hook (lambda () (haskell-doc-mode 1)))
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook
+	  (lambda ()
+	    (ghc-init)
+	    (flymake-mode)
+	    (haskell-doc-mode 1)
+	    (haskell-indent-mode 1)))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -92,7 +100,24 @@
 ; !!! Yes or No p http://www.emacswiki.org/emacs/YesOrNoP
 ; IDO http://www.emacswiki.org/emacs/InteractivelyDoThings
 ; more ido http://www.emacswiki.org/emacs/InteractivelyDoThings#toc8
+; ido hacks https://github.com/scottjad/ido-hacks/blob/master/ido-hacks.el
 ; watch emacs screencasts http://emacsrocks.com/
+; http://stackoverflow.com/questions/14836958/updating-packages-in-emacs
+; http://ergoemacs.org/emacs/emacs_package_system.html
+; xmpfilter in VIM http://justincampbell.me/til/annotate-ruby-code-in-vim-with-xmpfilter
+; melpa http://melpa.milkbox.net/#/getting-started
+; check out el-get vs elpa vs melpa vs marmelade
+; http://www.gnu.org/software/emacs/tour/
+; gnu hurd - check it out, see what it does, can it be used? how?
+;   http://www.gnu.org/software/hurd/hurd.html
+;   http://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html
+;   http://thread.gmane.org/gmane.os.hurd.bugs/18777
+;   http://darnassus.sceen.net/gitweb/hurd-web.git/commitdiff/ae16fea583613b94785c262b764a1b68cf722ded
+; PRO emacs config http://www.cyber.com.au/~twb/.emacs
+; recursive editing levels http://www.gnu.org/software/emacs/manual/html_node/emacs/Recursive-Edit.html
+; C-h i
+; check out gnu homepage for some more cool stuff http://www.gnu.org/home.en.html
+; emacs as word processor - read the whole thread https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00594.html
 
 ; My old config https://gist.github.com/darthdeus/d645f9e87db4cb8a9721
 
