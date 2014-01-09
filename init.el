@@ -2,11 +2,16 @@
 (setq ring-bell-function 'ignore) ; Disable the visual bell
 (setq inhibit-startup-message t)
 (setq inhibit-splash-screen t)
+(fset 'yes-or-no-p 'y-or-n-p)
+;;(set-face-attribute 'default nil :height 160)
+
+;; path settings
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
 
-(setq initial-frame-alist '((top . 140) (left . 240) (width . 140) (height . 60)))
+(setq initial-frame-alist '((top . 140) (left . 220) (width . 110) (height . 40)))
 
-(add-to-list 'exec-path "/usr/local/bin")
 
 ;; PACKAGE CONFIG
 (require 'package)
