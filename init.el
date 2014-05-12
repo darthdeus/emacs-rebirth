@@ -46,7 +46,6 @@
 (flx-ido-mode 1)
 (global-undo-tree-mode 1)
 (global-auto-complete-mode 1)
-(scroll-bar-mode 0)
 
 (when tool-bar-mode (tool-bar-mode 0))
 (when window-system (menu-bar-mode 1))
