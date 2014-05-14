@@ -75,7 +75,7 @@
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
 (define-key evil-motion-state-map (kbd "C-e") nil)
-; (evil-mode 1)
+(evil-mode 1)
 
 ; TODO - make this work
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
