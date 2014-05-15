@@ -27,7 +27,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous auto-complete paredit)
+				   flx flx-ido ido-ubiquitous auto-complete paredit shm undo-tree)
   "A list of packages installed at launch")
 
 ;(global-auto-complete-mode 1)
@@ -37,37 +37,15 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; structured-haskell-mode
-(require 'shm)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-(set-face-background 'shm-current-face "#eee8d5")
-(set-face-background 'shm-quarantine-face "lemonchiffon")
-;(define-key shm-map (kbd "M-{") nil)
-;(define-key shm-map (kbd "M-}") nil)
-
-;; TODO - check auto-fill mode
-;; (add-hook 'haskell-mode-hook (lambda () (haskell-doc-mode 1)))
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook
-	  (lambda ()
-	    (ghc-init)
-	    (flymake-mode)
-	    (haskell-doc-mode 1)
-	    (haskell-indent-mode 1)
-	    (structured-haskell-mode 1)))
-
-(require 'flymake-haskell-multi)
-(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
-
 ;; TODO - check if this is always enabled
 (require 'rainbow-delimiters)
-
 
 ;; TODO - check how to enable ido for M-x
 (ido-mode 1)
 (ido-everywhere 1)
 (ido-ubiquitous 1)
 (flx-ido-mode 1)
+(global-undo-tree-mode 1)
 
 (when tool-bar-mode
   (tool-bar-mode 0))
@@ -89,6 +67,35 @@
 (setq projectile-enable-caching t)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; structured-haskell-mode
+(require 'shm)
+
+(set-face-background 'shm-current-face "#eee8d5")
+(set-face-background 'shm-quarantine-face "lemonchiffon")
+;(define-key shm-map (kbd "M-{") nil)
+;(define-key shm-map (kbd "M-}") nil)
+
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+
+;; TODO - check auto-fill mode
+
+; check why this doesn't work
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook
+	  (lambda ()
+	    (ghc-init)
+;	    (flymake-mode)
+;	    (haskell-doc-mode 1)
+;	    (haskell-indent-mode 1)
+	    (structured-haskell-mode 1)
+	    ))
+
+(require 'flymake-haskell-multi)
+(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+
+
 
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
@@ -144,15 +151,3 @@
 
 
 ; http://code.org/teach
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(haskell-mode-hook (quote (capitalized-words-mode turn-on-haskell-doc turn-on-haskell-indentation))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
