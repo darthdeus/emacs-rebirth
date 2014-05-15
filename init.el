@@ -3,15 +3,15 @@
 (setq inhibit-startup-message t)
 (setq inhibit-splash-screen t)
 (fset 'yes-or-no-p 'y-or-n-p)
-;;(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 140)
 
 ;; path settings
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
+(setq exec-path (append exec-path '("/Users/darth/.cabal/bin")))
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
 
 (setq initial-frame-alist '((top . 140) (left . 220) (width . 110) (height . 40)))
-
 
 ;; PACKAGE CONFIG
 (require 'package)
@@ -27,14 +27,46 @@
   (package-refresh-contents))
 
 (defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous smex )
+				   flx flx-ido ido-ubiquitous auto-complete paredit)
   "A list of packages installed at launch")
+
+;(global-auto-complete-mode 1)
+
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
 ;; Automatically install a pre-defined list of packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
+;; structured-haskell-mode
+(require 'shm)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(set-face-background 'shm-current-face "#eee8d5")
+(set-face-background 'shm-quarantine-face "lemonchiffon")
+;(define-key shm-map (kbd "M-{") nil)
+;(define-key shm-map (kbd "M-}") nil)
+
+;; TODO - check auto-fill mode
+;; (add-hook 'haskell-mode-hook (lambda () (haskell-doc-mode 1)))
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook
+	  (lambda ()
+	    (ghc-init)
+	    (flymake-mode)
+	    (haskell-doc-mode 1)
+	    (haskell-indent-mode 1)
+	    (structured-haskell-mode 1)))
+
+(require 'flymake-haskell-multi)
+(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
 
 ;; TODO - check if this is always enabled
 (require 'rainbow-delimiters)
@@ -46,7 +78,14 @@
 (ido-ubiquitous 1)
 (flx-ido-mode 1)
 
-(tool-bar-mode 0)
+(when tool-bar-mode
+  (tool-bar-mode 0))
+
+(when window-system
+  (menu-bar-mode 1))
+
+(when (not (window-system))
+  (menu-bar-mode 0))
 
 ;; Smarter completion for M-x (ido style, but also msart)
 (smex-initialize)
@@ -58,22 +97,13 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 
-
-;; TODO - check auto-fill mode
-;; (add-hook 'haskell-mode-hook (lambda () (haskell-doc-mode 1)))
-(autoload 'ghc-init "ghc" nil t)
-(add-hook 'haskell-mode-hook
-	  (lambda ()
-	    (ghc-init)
-	    (flymake-mode)
-	    (haskell-doc-mode 1)
-	    (haskell-indent-mode 1)))
-
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
 
+
+; use display-graphic-p instead of window-system
 
 ;(require 'rcodetools)
 ;(define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
@@ -123,3 +153,15 @@
 
 
 ; http://code.org/teach
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(haskell-mode-hook (quote (capitalized-words-mode turn-on-haskell-doc turn-on-haskell-indentation))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
