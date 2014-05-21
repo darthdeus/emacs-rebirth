@@ -80,13 +80,15 @@
 ; TODO - make this work
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
 
-(set-face-background 'shm-current-face "#eee8d5")
-(set-face-background 'shm-quarantine-face "lemonchiffon")
+;; structured-haskell-mode
+;(require 'shm)
+;(set-face-background 'shm-current-face "#eee8d5")
+;(set-face-background 'shm-quarantine-face "lemonchiffon")
 ;(define-key shm-map (kbd "M-{") nil)
 ;(define-key shm-map (kbd "M-}") nil)
 
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-
+;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(global-set-key (kbd "s-s") 'ghc-save-buffer)
 ;; TODO - check auto-fill mode
 
 ; check why this doesn't work
@@ -96,18 +98,26 @@
 	    (ghc-init)
 ;	    (flymake-mode)
 ;	    (haskell-doc-mode 1)
-;	    (haskell-indent-mode 1)
-	    (structured-haskell-mode 1)
+;           (haskell-indent-mode 1)
+;           (haskell-indent-mode 0)
+;            (haskell-simple-indent-mode 1)
+;	    (structured-haskell-mode 1)
+           ; (ac-haskell-mode-setup)
 	    ))
 
-(require 'flymake-haskell-multi)
-(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+(setq ghc-display-error 'minibuffer)
+
+(defun ac-haskell-mode-setup ()
+  (setq ac-sources '(ac-source-ghc-mod)))
 
 
+(setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
+
+;(require 'flymake-haskell-multi)
+;(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
 
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
-
 
 ; use display-graphic-p instead of window-system
 
