@@ -31,8 +31,6 @@
 				   flx flx-ido ido-ubiquitous auto-complete paredit shm undo-tree)
   "A list of packages installed at launch")
 
-;(global-auto-complete-mode 1)
-
 ;; Automatically install a pre-defined list of packages
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -47,6 +45,8 @@
 (ido-ubiquitous 1)
 (flx-ido-mode 1)
 (global-undo-tree-mode 1)
+(global-auto-complete-mode 1)
+(scroll-bar-mode 0)
 
 (when tool-bar-mode
   (tool-bar-mode 0))
