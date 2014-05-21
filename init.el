@@ -48,14 +48,9 @@
 (global-auto-complete-mode 1)
 (scroll-bar-mode 0)
 
-(when tool-bar-mode
-  (tool-bar-mode 0))
-
-(when window-system
-  (menu-bar-mode 1))
-
-(when (not (window-system))
-  (menu-bar-mode 0))
+(when tool-bar-mode (tool-bar-mode 0))
+(when window-system (menu-bar-mode 1))
+(when (not (window-system)) (menu-bar-mode 0))
 
 ;; Smarter completion for M-x (ido style, but also msart)
 (smex-initialize)
