@@ -67,8 +67,18 @@
 
 (require 'dirtree)
 
-;; structured-haskell-mode
-(require 'shm)
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; EVIL MODE
+(require 'evil)
+(define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
+(define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
+(define-key evil-motion-state-map (kbd "C-e") nil)
+; (evil-mode 1)
+
+; TODO - make this work
+; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
 
 (set-face-background 'shm-current-face "#eee8d5")
 (set-face-background 'shm-quarantine-face "lemonchiffon")
