@@ -58,12 +58,14 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+
 ;; Projectile config
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'dirtree)
 
 ;; structured-haskell-mode
 (require 'shm)
