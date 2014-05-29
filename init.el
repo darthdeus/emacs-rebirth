@@ -82,6 +82,8 @@
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 (evil-mode 1)
 
+(blink-cursor-mode 0)
+
 ; TODO - make this work
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
 
