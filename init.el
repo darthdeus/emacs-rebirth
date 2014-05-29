@@ -173,10 +173,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
+ '(custom-safe-themes (quote ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
+ '(haskell-indent-spaces 4)
+ '(haskell-indentation-layout-offset 4)
+ '(haskell-indentation-left-offset 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ '(fringe ((t (:background "#282a2e"))))
+ '(ghc-face-error ((t (:underline "gray36"))))
+ '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
+ '(mode-line ((t (:background "#282a2e" :box (:line-width 1 :color "gray21") :weight normal))))
+ '(mode-line-inactive ((t (:background "#282a2e" :box (:line-width 1 :color "gray21") :weight normal)))))
