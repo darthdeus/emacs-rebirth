@@ -58,8 +58,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "C-c m s") 'magit-status)
-(global-set-key (kbd "s-s") 'ghc-save-buffer)
-
 
 ;; Projectile config
 (projectile-global-mode)
@@ -103,6 +101,8 @@
 ;            (haskell-simple-indent-mode 1)
 ;	    (structured-haskell-mode 1)
            ; (ac-haskell-mode-setup)
+            ;; This is only needed when ghc-mod is loaded
+            (global-set-key (kbd "s-s") 'ghc-save-buffer)
 	    ))
 
 (setq ghc-display-error 'minibuffer)
