@@ -28,7 +28,7 @@
   (package-refresh-contents))
 
 (defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous auto-complete paredit shm undo-tree)
+				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -79,13 +79,6 @@
 
 ; TODO - make this work
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
-
-;; structured-haskell-mode
-;(require 'shm)
-;(set-face-background 'shm-current-face "#eee8d5")
-;(set-face-background 'shm-quarantine-face "lemonchiffon")
-;(define-key shm-map (kbd "M-{") nil)
-;(define-key shm-map (kbd "M-}") nil)
 
 ;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (global-set-key (kbd "s-s") 'ghc-save-buffer)
