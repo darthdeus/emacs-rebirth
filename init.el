@@ -57,6 +57,8 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key (kbd "C-c m s") 'magit-status)
+(global-set-key (kbd "s-s") 'ghc-save-buffer)
 
 
 ;; Projectile config
@@ -81,7 +83,6 @@
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
 
 ;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-(global-set-key (kbd "s-s") 'ghc-save-buffer)
 ;; TODO - check auto-fill mode
 
 ; check why this doesn't work
