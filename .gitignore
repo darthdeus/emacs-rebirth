@@ -1,0 +1,11 @@
+ac-comphist.dat
+el-get/
+elpa/
+eshell/
+hoogle.el
+projectile-bookmarks.eld
+projectile.cache
+rcodetools.el
+snippets/
+tutorial/
+var/
