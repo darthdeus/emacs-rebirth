@@ -95,6 +95,7 @@
 (add-hook 'haskell-mode-hook
 	  (lambda ()
 	    (ghc-init)
+      (turn-on-haskell-indentation)
 ;	    (flymake-mode)
 ;	    (haskell-doc-mode 1)
 ;           (haskell-indent-mode 1)
