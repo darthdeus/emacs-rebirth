@@ -74,6 +74,7 @@
 (require 'evil)
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
+(define-key evil-normal-state-map (kbd "q") nil)
 
 (define-key evil-insert-state-map (kbd "C-e") nil)
 (define-key evil-insert-state-map (kbd "C-d") nil)
