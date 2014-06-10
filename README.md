@@ -7,3 +7,6 @@ them, instead of installing every single plugin in the universe.
 To install simply clone the repo
 
     $ git clone https://github.com/darthdeus/emacs-rebirth ~/.emacs.d
+
+So far this configuration is mostly setup for doing Haskell development.
+There is a small amount of config for Rails, but not yet fully usable.
