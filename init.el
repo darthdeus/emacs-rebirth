@@ -100,13 +100,9 @@
 (add-hook 'haskell-mode-hook
 	  (lambda ()
 	    (ghc-init)
-      (turn-on-haskell-indentation)
+            (turn-on-haskell-indentation)
 ;	    (flymake-mode)
 ;	    (haskell-doc-mode 1)
-;           (haskell-indent-mode 1)
-;           (haskell-indent-mode 0)
-;            (haskell-simple-indent-mode 1)
-;	    (structured-haskell-mode 1)
            ; (ac-haskell-mode-setup)
             ;; This is only needed when ghc-mod is loaded
             (global-set-key (kbd "s-s") 'ghc-save-buffer)
