@@ -93,7 +93,6 @@
 ; TODO - make this work
 ; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
 
-;(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 ;; TODO - check auto-fill mode
 
 ; check why this doesn't work
