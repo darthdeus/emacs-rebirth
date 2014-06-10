@@ -47,9 +47,9 @@
 (global-undo-tree-mode 1)
 (global-auto-complete-mode 1)
 
-(when scroll-bar-mode (scroll-bar-mode 0))
+(when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
-(when window-system (menu-bar-mode 1))
+(when window-system (menu-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
 ;; Smarter completion for M-x (ido style, but also msart)
