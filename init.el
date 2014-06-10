@@ -150,6 +150,7 @@
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
+(define-key haskell-mode-map (kbd "<f12>") 'haskell-process-reload-devel-main)
 
 ;(require 'flymake-haskell-multi)
 ;(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
