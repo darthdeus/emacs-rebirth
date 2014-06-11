@@ -115,6 +115,9 @@
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
+; figure out the name of this '(haskell-process-suggest-hoogle-imports f)
+  ; '(haskell-process-suggest-remove-import-lines f)
+  ;'(haskell-process-auto-import-loaded-modules t)
 (custom-set-variables
   '(haskell-process-suggest-remove-import-lines t)
   '(haskell-process-auto-import-loaded-modules t)
