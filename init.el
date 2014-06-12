@@ -101,9 +101,6 @@
 	  (lambda ()
 	    (ghc-init)
             (turn-on-haskell-indentation)
-;	    (flymake-mode)
-;	    (haskell-doc-mode 1)
-           ; (ac-haskell-mode-setup)
             ;; This is only needed when ghc-mod is loaded
             (global-set-key (kbd "s-s") 'ghc-save-buffer)
 	    ))
@@ -115,7 +112,6 @@
 
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "<f12>") 'haskell-process-reload-devel-main)
-; (define-key haskell-mode-map (kbd "<f12>") 'haskell-process-reload-devel-main)
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
@@ -153,16 +149,10 @@
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
-;(require 'flymake-haskell-multi)
-;(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
-
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
 
 ; use display-graphic-p instead of window-system
-
-;(require 'rcodetools)
-;(define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 
 
 ;; Packages and other emacs things that I want to check out
