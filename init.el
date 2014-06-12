@@ -114,6 +114,8 @@
      (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
 
 (global-set-key (kbd "C-x a r") 'align-regexp)
+(global-set-key (kbd "<f12>") 'haskell-process-reload-devel-main)
+; (define-key haskell-mode-map (kbd "<f12>") 'haskell-process-reload-devel-main)
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
@@ -150,7 +152,6 @@
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
-(define-key haskell-mode-map (kbd "<f12>") 'haskell-process-reload-devel-main)
 
 ;(require 'flymake-haskell-multi)
 ;(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
