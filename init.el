@@ -91,11 +91,6 @@
 
 (blink-cursor-mode 0)
 
-; TODO - make this work
-; (define-key key-translation-map (kbd ",f") (kbd "C-c p f"))
-
-;; TODO - check auto-fill mode
-
 ; check why this doesn't work
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook
