@@ -29,7 +29,8 @@
   (package-refresh-contents))
 
 (defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree)
+				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half
+                                   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
