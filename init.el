@@ -29,9 +29,9 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode
-				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half
-                                   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround)
+(defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode smex
+				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
+                                   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
