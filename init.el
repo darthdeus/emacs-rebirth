@@ -89,6 +89,8 @@
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 (evil-mode 1)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 
 (blink-cursor-mode 0)
 
