@@ -123,6 +123,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
+ ;; Check if it's possible to enable this only conditionally
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes (quote ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
  '(haskell-indent-spaces 4)
@@ -218,6 +220,8 @@
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
+
+ ; Check if this is possible to enable only conditionally
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
