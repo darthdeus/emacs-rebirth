@@ -9,3 +9,5 @@ rcodetools.el
 snippets/
 tutorial/
 var/
+emacs-backup/
+auto-save-list/
