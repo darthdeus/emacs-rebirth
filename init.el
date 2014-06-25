@@ -4,8 +4,8 @@
 (setq inhibit-splash-screen t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
-;(set-face-attribute 'default nil :height 140)
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 140)
+;(set-face-attribute 'default nil :height 120)
 ;(set-face-attribute 'default nil :height 180)
 
 ;; path settings
@@ -18,11 +18,10 @@
 
 ;; PACKAGE CONFIG
 (require 'package)
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")))
+;(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")))
 
 ; Apparently needed for the package auto-complete (why?)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
 
@@ -47,7 +46,9 @@
 (ido-everywhere 1)
 (ido-ubiquitous 1)
 (flx-ido-mode 1)
-(global-undo-tree-mode 1)
+
+; TODO - enable this later
+(global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
 
 (when window-system (scroll-bar-mode 0))
@@ -67,6 +68,10 @@
 (setq projectile-enable-caching t)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(add-hook 'markdown-mode-hook '(lambda ()
+                                 (flyspell-mode 1)
+                                 (auto-fill-mode 1)))
 
 (require 'dirtree)
 
@@ -89,9 +94,9 @@
 (define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
-(evil-mode 1)
-(require 'evil-surround)
-(global-evil-surround-mode 1)
+;; (evil-mode 1)
+;; (require 'evil-surround)
+;; (global-evil-surround-mode 1)
 
 (blink-cursor-mode 0)
 
@@ -114,6 +119,12 @@
 (global-set-key (kbd "<f12>") 'haskell-process-reload-devel-main)
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+
+;;; PureScript cheat mode
+(define-derived-mode purescript-mode haskell-mode "PureScript"
+  "Major mode for PureScript")
+(add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
+
 
 ; figure out the name of this '(haskell-process-suggest-hoogle-imports f)
   ; '(haskell-process-suggest-remove-import-lines f)
