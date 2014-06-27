@@ -50,6 +50,7 @@
 ; TODO - enable this later
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
+(blink-cursor-mode 0)
 
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
@@ -80,6 +81,10 @@
 
 ;; EVIL MODE
 (require 'evil)
+(require 'evil-surround)
+(evil-mode 1)
+(global-evil-surround-mode 1)
+
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
 (define-key evil-normal-state-map (kbd "q") nil)
@@ -94,9 +99,9 @@
 (define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
-;; (evil-mode 1)
-;; (require 'evil-surround)
-;; (global-evil-surround-mode 1)
+(evil-mode 1)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 
 (blink-cursor-mode 0)
 
