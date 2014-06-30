@@ -4,8 +4,8 @@
 (setq inhibit-splash-screen t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
-(set-face-attribute 'default nil :height 140)
-;(set-face-attribute 'default nil :height 120)
+;(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 120)
 ;(set-face-attribute 'default nil :height 180)
 
 ;; path settings
@@ -88,15 +88,21 @@
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
 (define-key evil-normal-state-map (kbd "q") nil)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-x h k") 'describe-key)
 
 (define-key evil-insert-state-map (kbd "C-e") nil)
 (define-key evil-insert-state-map (kbd "C-d") nil)
 (define-key evil-insert-state-map (kbd "C-k") nil)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+
 (define-key evil-visual-state-map (kbd "C-c") 'evil-normal-state)
+(define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 (define-key evil-motion-state-map (kbd "C-e") nil)
-(define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 (evil-mode 1)
@@ -139,16 +145,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
- ;; Check if it's possible to enable this only conditionally
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes (quote ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
+ '(custom-safe-themes (quote ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
  '(haskell-indent-spaces 4)
  '(haskell-indentation-layout-offset 4)
  '(haskell-indentation-left-offset 4)
  '(haskell-interactive-popup-errors nil)
  '(haskell-process-log t)
  '(haskell-process-type (quote cabal-repl))
+ '(shell-file-name "/bin/bash")
  '(truncate-lines nil))
 
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
@@ -236,8 +241,6 @@
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
-
- ; Check if this is possible to enable only conditionally
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
