@@ -8,6 +8,9 @@
 (set-face-attribute 'default nil :height 120)
 ;(set-face-attribute 'default nil :height 180)
 
+;; Simple helper to interactively set font size
+(defun set-font-size (size) (set-face-attribute 'default nil :height size))
+
 ;; path settings
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
