@@ -91,11 +91,6 @@
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
 (define-key evil-normal-state-map (kbd "q") nil)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-x h k") 'describe-key)
 
 (define-key evil-insert-state-map (kbd "C-e") nil)
 (define-key evil-insert-state-map (kbd "C-d") nil)
@@ -106,6 +101,21 @@
 (define-key evil-visual-state-map (kbd "C-c") 'evil-exit-visual-state)
 
 (define-key evil-motion-state-map (kbd "C-e") nil)
+
+;; Switching between windows with C-hjkl
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-x h k") 'describe-key)
+
+;; Insert mode as well
+(define-key evil-insert-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-insert-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-insert-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-insert-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-insert-state-map (kbd "C-x h k") 'describe-key)
+(define-key evil-insert-state-map (kbd "C-x C-k C-k") 'kill-line)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 (evil-mode 1)
