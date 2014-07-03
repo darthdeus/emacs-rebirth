@@ -50,6 +50,9 @@
 (ido-ubiquitous 1)
 (flx-ido-mode 1)
 
+;; blinking is annoying
+(blink-cursor-mode 0)
+
 ; TODO - enable this later
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
@@ -119,8 +122,6 @@
 (define-key evil-insert-state-map (kbd "C-x C-k C-k") 'kill-line)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
-
-(blink-cursor-mode 0)
 
 ; check why this doesn't work
 (autoload 'ghc-init "ghc" nil t)
