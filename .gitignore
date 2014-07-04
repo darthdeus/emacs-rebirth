@@ -6,7 +6,6 @@ hoogle.el
 projectile-bookmarks.eld
 projectile.cache
 rcodetools.el
-snippets/
 tutorial/
 var/
 emacs-backup/
