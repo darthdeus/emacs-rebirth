@@ -119,9 +119,6 @@
 (define-key evil-insert-state-map (kbd "C-x C-k C-k") 'kill-line)
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
-(evil-mode 1)
-(require 'evil-surround)
-(global-evil-surround-mode 1)
 
 (blink-cursor-mode 0)
 
