@@ -58,6 +58,11 @@
 (global-auto-complete-mode 1)
 (blink-cursor-mode 0)
 
+(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+; /usr/local/opt/coq/lib/emacs/site-lisp
+(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
 (when window-system (menu-bar-mode 0))
