@@ -74,6 +74,10 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "C-c m s") 'magit-status)
+(global-set-key (kbd "s-e") 'eval-region)
+(global-set-key (kbd "s-/") 'comment-region)
+(global-set-key (kbd "s-?") 'uncomment-region)
+
 
 ;; Projectile config
 (projectile-global-mode)
