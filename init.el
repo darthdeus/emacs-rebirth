@@ -53,10 +53,8 @@
 ;; blinking is annoying
 (blink-cursor-mode 0)
 
-; TODO - enable this later
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
-(blink-cursor-mode 0)
 
 (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
 ; /usr/local/opt/coq/lib/emacs/site-lisp
