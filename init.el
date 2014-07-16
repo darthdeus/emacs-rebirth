@@ -11,12 +11,15 @@
 ;; Simple helper to interactively set font size
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
 
+(add-to-list 'load-path "packages/")
+
 ;; path settings
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/Users/darth/.cabal/bin")))
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
 
+;; Default window position
 (setq initial-frame-alist '((top . 140) (left . 220) (width . 110) (height . 40)))
 
 ;; PACKAGE CONFIG
@@ -26,14 +29,30 @@
 ; Apparently needed for the package auto-complete (why?)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+(require 'cl)
+
+(defvar packages
+  '(haskell-mode)
+  )
+
+(loop for name in packages
+      do (progn (unless (fboundp name)
+                  (add-to-list 'load-path
+                               (concat (file-name-directory (or load-file-name
+                                                                (buffer-file-name)))
+                                       "packages/"
+                                       (symbol-name name)))
+                  (require name))))
+
 (package-initialize)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(haskell-mode sequential-command rainbow-delimiters projectile grizzl yaml-mode smex
-				   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
-                                   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet)
+(defvar my-packages
+  '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex
+  flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
+  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -43,6 +62,8 @@
 
 ;; TODO - check if this is always enabled
 (require 'rainbow-delimiters)
+
+(require 'haskell-mode)
 
 ;; TODO - check how to enable ido for M-x
 (ido-mode 1)
