@@ -11,8 +11,6 @@
 ;; Simple helper to interactively set font size
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
 
-(add-to-list 'load-path "packages/")
-
 ;; path settings
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -32,8 +30,7 @@
 (require 'cl)
 
 (defvar packages
-  '(haskell-mode)
-  )
+  '(haskell-mode))
 
 (loop for name in packages
       do (progn (unless (fboundp name)
