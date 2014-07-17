@@ -41,6 +41,8 @@
                                        (symbol-name name)))
                   (require name))))
 
+(load "haskell-mode-autoloads.el")
+
 (package-initialize)
 
 (when (not package-archive-contents)
