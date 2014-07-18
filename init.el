@@ -190,6 +190,7 @@
  '(haskell-indentation-layout-offset 4)
  '(haskell-indentation-left-offset 4)
  '(haskell-interactive-popup-errors nil)
+ '(haskell-mode-contextual-import-completion nil)
  '(haskell-process-log t)
  '(haskell-process-type (quote cabal-repl))
  '(shell-file-name "/bin/bash")
