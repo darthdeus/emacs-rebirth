@@ -278,12 +278,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
- '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
-)
+ '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal)))))
