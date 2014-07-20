@@ -32,3 +32,8 @@ in evil, `<tab>` is bound to `yas-expand-snippet`, which seems correct
 ... but sometimes it does invoke autocomplete instead of doing the
 expansion, for example on `fun` in `haskell-mode` it almost always
 autocompletes to `Functor` instead of expanding to a function.
+
+## Haskell Mode
+
+One of the main reasons why I'm using Emacs instead of VIM these days is
+that haskell-mode is just far superior to vim2hs.
