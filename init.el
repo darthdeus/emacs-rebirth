@@ -5,7 +5,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
 ;(set-face-attribute 'default nil :height 160)
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 140)
 ;(set-face-attribute 'default nil :height 180)
 
 ;; Simple helper to interactively set font size
