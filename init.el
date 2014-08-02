@@ -49,7 +49,7 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex
+  '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet)
   "A list of packages installed at launch")
@@ -107,6 +107,13 @@
                                  (flyspell-mode 1)
                                  (auto-fill-mode 1)))
 
+(add-hook 'speedbar-mode-hook '(lambda ()
+                                 (local-set-key (kbd "C-l") 'evil-window-right)
+                                 (local-set-key (kbd "C-h") 'evil-window-left)
+                                 (local-set-key (kbd "C-j") 'evil-window-down)
+                                 (local-set-key (kbd "C-k") 'evil-window-up)
+                                 ))
+
 (require 'dirtree)
 
 (require 'yasnippet)
@@ -158,6 +165,10 @@
             (turn-on-haskell-indentation)
             ;; This is only needed when ghc-mod is loaded
             (global-set-key (kbd "s-s") 'ghc-save-buffer)
+
+            (define-key evil-normal-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
+            (define-key evil-insert-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
+
 	    ))
 
 (eval-after-load "haskell-mode"
@@ -165,8 +176,11 @@
      (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
      (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
 
+(setq haskell-tags-on-save t)
+
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "<f12>") 'haskell-process-reload-devel-main)
+(global-set-key (kbd "<f5>") 'sr-speedbar-toggle)
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
