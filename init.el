@@ -35,8 +35,7 @@
 (loop for name in packages
       do (progn (unless (fboundp name)
                   (add-to-list 'load-path
-                               (concat (file-name-directory (or load-file-name
-                                                                (buffer-file-name)))
+                               (concat (file-name-directory (or load-file-name (buffer-file-name)))
                                        "packages/"
                                        (symbol-name name)))
                   (require name))))
