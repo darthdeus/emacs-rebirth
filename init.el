@@ -75,10 +75,10 @@
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
 
-(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+;(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
 ; /usr/local/opt/coq/lib/emacs/site-lisp
-(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
-(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+;(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
+;(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
