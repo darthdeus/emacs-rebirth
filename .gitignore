@@ -11,3 +11,5 @@ var/
 emacs-backup/
 auto-save-list/
 menu_log.notes
+
+smex-items
