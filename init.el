@@ -169,6 +169,7 @@
 
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 
+(require 'hi2)
 ; check why this doesn't work
  (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook
