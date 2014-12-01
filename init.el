@@ -175,7 +175,8 @@
 (add-hook 'haskell-mode-hook
 	  (lambda ()
 	    (ghc-init)
-            (turn-on-haskell-indentation)
+            ;; (turn-on-haskell-indentation)
+            (turn-on-hi2)
             ;; This is only needed when ghc-mod is loaded
             (global-set-key (kbd "s-s") 'ghc-save-buffer)
 
