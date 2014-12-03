@@ -191,6 +191,7 @@
 (setq haskell-tags-on-save t)
 
 (global-set-key (kbd "C-x a r") 'align-regexp)
+(global-set-key (kbd "<f5>") 'neotree-toggle)
 (global-set-key (kbd "<f12>") 'haskell-process-reload-devel-main)
 (global-set-key (kbd "<f5>") 'sr-speedbar-toggle)
 
