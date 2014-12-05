@@ -325,7 +325,8 @@
  '(hindent-style "gibiansky")
  '(safe-local-variable-values
    (quote
-    ((hamlet/basic-offset . 4)
+    ((haskell-indent-spaces . 4)
+     (hamlet/basic-offset . 4)
      (haskell-process-use-ghci . t)
      (haskell-process-type . cabal-repl))))
  '(shell-file-name "/bin/bash")
