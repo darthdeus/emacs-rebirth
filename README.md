@@ -37,3 +37,7 @@ autocompletes to `Functor` instead of expanding to a function.
 
 One of the main reasons why I'm using Emacs instead of VIM these days is
 that haskell-mode is just far superior to vim2hs.
+
+## License
+
+MIT
