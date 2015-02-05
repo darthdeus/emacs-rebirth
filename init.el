@@ -4,9 +4,17 @@
 (setq inhibit-splash-screen t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
-;(set-face-attribute 'default nil :height 160)
+;(set-face-attribute 'default nil :height 120)
 (set-face-attribute 'default nil :height 140)
+;(set-face-attribute 'default nil :height 160)
 ;(set-face-attribute 'default nil :height 180)
+
+(when window-system (scroll-bar-mode 0))
+(when tool-bar-mode (tool-bar-mode 0))
+(when window-system (menu-bar-mode 0))
+(when (not (window-system)) (menu-bar-mode 0))
+
+;(load "/Users/darth/projects/emacs-haskell-config/init.el")
 
 ;; Simple helper to interactively set font size
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
@@ -19,7 +27,7 @@
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
 
 ;; Default window position
-(setq initial-frame-alist '((top . 140) (left . 220) (width . 110) (height . 40)))
+(setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
 
 ;; PACKAGE CONFIG
 (require 'package)
@@ -30,8 +38,7 @@
 
 (require 'cl)
 
-(defvar packages
-  '(haskell-mode))
+(defvar packages '(haskell-mode))
 
 (loop for name in packages
       do (progn (unless (fboundp name)
@@ -42,7 +49,6 @@
                   (require name))))
 
 (load "haskell-mode-autoloads.el")
-;; (load "/Users/darth/.cabal/share/x86_64-osx-ghc-7.8.3/Agda-2.4.2.2/emacs-mode/agda2.el")
 
 (package-initialize)
 
@@ -52,7 +58,7 @@
 (defvar my-packages
   '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
-  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode)
+  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode hindent)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -78,16 +84,10 @@
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
 
-; /usr/local/opt/coq/lib/emacs/site-lisp
+;; Coq
 (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
-; (load-file "/usr/local/opt/coq/lib/emacs/site-lisp")
 (setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
 (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
-
-(when window-system (scroll-bar-mode 0))
-(when tool-bar-mode (tool-bar-mode 0))
-(when window-system (menu-bar-mode 0))
-(when (not (window-system)) (menu-bar-mode 0))
 
 ;; Smarter completion for M-x (ido style, but also msart)
 (smex-initialize)
@@ -163,7 +163,7 @@
 (add-to-list 'evil-insert-state-modes 'inferior-haskell-mode)
 
 ; check why this doesn't work
-(autoload 'ghc-init "ghc" nil t)
+ (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook
 	  (lambda ()
 	    (ghc-init)
@@ -173,8 +173,8 @@
 
             (define-key evil-normal-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
             (define-key evil-insert-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
-
-	    ))
+	    )
+          )
 
 (eval-after-load "haskell-mode"
   '(progn
@@ -189,40 +189,9 @@
 
 (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
 
-;;; PureScript cheat mode
-(define-derived-mode purescript-mode haskell-mode "PureScript"
-  "Major mode for PureScript")
-(add-to-list 'auto-mode-alist (cons "\\.purs\\'" 'purescript-mode))
-
-
 ; figure out the name of this '(haskell-process-suggest-hoogle-imports f)
-  ; '(haskell-process-suggest-remove-import-lines f)
-  ;'(haskell-process-auto-import-loaded-modules t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coq-load-path (quote ("src")))
- '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
- '(evil-shift-width 4)
- '(haskell-indent-spaces 4)
- '(haskell-indentation-layout-offset 4)
- '(haskell-indentation-left-offset 4)
- '(haskell-interactive-popup-errors nil)
- '(haskell-mode-contextual-import-completion nil)
- '(haskell-process-log t)
- '(haskell-process-type (quote cabal-repl))
- '(safe-local-variable-values
-   (quote
-    ((hamlet/basic-offset . 4)
-     (haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4))))
- '(shell-file-name "/bin/bash")
- '(truncate-lines nil))
+'(haskell-process-suggest-remove-import-lines f)
+'(haskell-process-auto-import-loaded-modules t)
 
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
@@ -234,6 +203,7 @@
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
 (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
+(define-key haskell-mode-map (kbd "C-c i") 'hindent/reformat-decl)
 
 ;; (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
 ;; (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
@@ -255,7 +225,6 @@
 ;(setq apropos-do-all t)
 
 ; use display-graphic-p instead of window-system
-
 
 ;; Packages and other emacs things that I want to check out
 ; http://www.emacswiki.org/emacs/SequentialCommand
@@ -310,4 +279,54 @@
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
- '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
+ '(shm-current-face ((t (:background "#efefef"))))
+ '(shm-quarantine-face ((t (:inherit font-lock-error)))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(coq-load-path (quote ("src")))
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
+ '(custom-safe-themes
+   (quote
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(evil-shift-width 4)
+ '(haskell-complete-module-preferred
+   (quote
+    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+ '(haskell-interactive-mode-eval-mode (quote haskell-mode))
+ '(haskell-interactive-mode-eval-pretty nil)
+ '(haskell-interactive-mode-include-file-name nil)
+ '(haskell-interactive-popup-errors nil)
+ '(haskell-mode-contextual-import-completion nil)
+ '(haskell-notify-p t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-generate-tags nil)
+ '(haskell-process-log t)
+ '(haskell-process-reload-with-fbytecode nil)
+ '(haskell-process-suggest-haskell-docs-imports t)
+ '(haskell-process-suggest-remove-import-lines nil)
+ '(haskell-process-type (quote cabal-repl))
+ '(haskell-process-use-presentation-mode t)
+ '(haskell-stylish-on-save nil)
+ '(haskell-tags-on-save nil)
+ '(hindent-style "johan-tibell")
+ '(safe-local-variable-values
+   (quote
+    ((hamlet/basic-offset . 4)
+     (haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)
+     (haskell-indent-spaces . 2)
+     (hindent-style . "chris-done")
+     (hindent-style . "gibiansky")
+     (hindent-style . "johan-tibell")
+     (haskell-process-type . cabal-repl)
+     (shm-lambda-indent-style . leftmost-parent))))
+ '(shell-file-name "/bin/bash")
+ '(shm-auto-insert-bangs t)
+ '(shm-auto-insert-skeletons t)
+ '(shm-use-presentation-mode t)
+ '(truncate-lines nil))
