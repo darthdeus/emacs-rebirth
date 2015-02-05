@@ -12,9 +12,10 @@
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
 
 ;; path settings
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/darth/.cabal/bin:/Applications/ghc-7.8.3.app/Contents/bin/ghc"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/Users/darth/.cabal/bin")))
+(setq exec-path (append exec-path '("/Applications/ghc-7.8.3.app/Contents/bin/ghc")))
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
 
 ;; Default window position
@@ -41,6 +42,7 @@
                   (require name))))
 
 (load "haskell-mode-autoloads.el")
+;; (load "/Users/darth/.cabal/share/x86_64-osx-ghc-7.8.3/Agda-2.4.2.2/emacs-mode/agda2.el")
 
 (package-initialize)
 
@@ -50,7 +52,7 @@
 (defvar my-packages
   '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
-  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet)
+  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -60,8 +62,9 @@
 
 ;; TODO - check if this is always enabled
 (require 'rainbow-delimiters)
-
 (require 'haskell-mode)
+(require 'ediprolog)
+(global-set-key [f10] 'ediprolog-dwim)
 
 ;; TODO - check how to enable ido for M-x
 (ido-mode 1)
@@ -75,10 +78,11 @@
 (global-undo-tree-mode 0)
 (global-auto-complete-mode 1)
 
-;(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
 ; /usr/local/opt/coq/lib/emacs/site-lisp
-;(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
-;(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+; (load-file "/usr/local/opt/coq/lib/emacs/site-lisp")
+(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
+(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
@@ -95,6 +99,8 @@
 (global-set-key (kbd "s-/") 'comment-region)
 (global-set-key (kbd "s-?") 'uncomment-region)
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
 
 ;; Projectile config
 (projectile-global-mode)
@@ -197,8 +203,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(coq-load-path (quote ("src")))
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes (quote ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
+ '(custom-safe-themes
+   (quote
+    ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "c2cfe2f1440d9ef4bfd3ef4cf15bfe35ff40e6d431264b1e24af64f145cffb11" "1affe85e8ae2667fb571fc8331e1e12840746dae5c46112d5abb0c3a973f5f5a" default)))
+ '(evil-shift-width 4)
  '(haskell-indent-spaces 4)
  '(haskell-indentation-layout-offset 4)
  '(haskell-indentation-left-offset 4)
@@ -206,6 +216,11 @@
  '(haskell-mode-contextual-import-completion nil)
  '(haskell-process-log t)
  '(haskell-process-type (quote cabal-repl))
+ '(safe-local-variable-values
+   (quote
+    ((hamlet/basic-offset . 4)
+     (haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4))))
  '(shell-file-name "/bin/bash")
  '(truncate-lines nil))
 
@@ -224,8 +239,6 @@
 ;; (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
 ;; (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 ;; (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
-
-
 
 
 (setq ghc-display-error 'minibuffer)
