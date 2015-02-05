@@ -28,6 +28,7 @@
 
 ;; Default window position
 (setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
+; (setq initial-frame-alist '((top . 70) (left . 220) (width . 110) (height . 40)))
 
 ;; PACKAGE CONFIG
 (require 'package)
@@ -88,6 +89,11 @@
 (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
 (setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
 (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+
+(when window-system (scroll-bar-mode 0))
+(when tool-bar-mode (tool-bar-mode 0))
+(when window-system (menu-bar-mode 0))
+(when (not (window-system)) (menu-bar-mode 0))
 
 ;; Smarter completion for M-x (ido style, but also msart)
 (smex-initialize)
@@ -172,9 +178,7 @@
             (global-set-key (kbd "s-s") 'ghc-save-buffer)
 
             (define-key evil-normal-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
-            (define-key evil-insert-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
-	    )
-          )
+            (define-key evil-insert-state-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 (eval-after-load "haskell-mode"
   '(progn
@@ -192,6 +196,7 @@
 ; figure out the name of this '(haskell-process-suggest-hoogle-imports f)
 '(haskell-process-suggest-remove-import-lines f)
 '(haskell-process-auto-import-loaded-modules t)
+
 
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
@@ -276,6 +281,7 @@
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
+ '(idris-loaded-region-face ((t (:background "gray8"))))
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
