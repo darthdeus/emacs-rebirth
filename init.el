@@ -6,7 +6,7 @@
 (setq-default indent-tabs-mode nil)
 ;(set-face-attribute 'default nil :height 120)
 (set-face-attribute 'default nil :height 140)
-;(set-face-attribute 'default nil :height 160)
+;; (set-face-attribute 'default nil :height 160)
 ;(set-face-attribute 'default nil :height 180)
 
 (when window-system (scroll-bar-mode 0))
@@ -104,6 +104,7 @@
 (global-set-key (kbd "s-e") 'eval-region)
 (global-set-key (kbd "s-/") 'comment-region)
 (global-set-key (kbd "s-?") 'uncomment-region)
+(global-set-key (kbd "C-`") 'haskell-interactive-bring)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
@@ -319,18 +320,12 @@
  '(haskell-process-use-presentation-mode t)
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save nil)
- '(hindent-style "johan-tibell")
+ '(hindent-style "gibiansky")
  '(safe-local-variable-values
    (quote
     ((hamlet/basic-offset . 4)
      (haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)
-     (haskell-indent-spaces . 2)
-     (hindent-style . "chris-done")
-     (hindent-style . "gibiansky")
-     (hindent-style . "johan-tibell")
-     (haskell-process-type . cabal-repl)
-     (shm-lambda-indent-style . leftmost-parent))))
+     (haskell-process-type . cabal-repl))))
  '(shell-file-name "/bin/bash")
  '(shm-auto-insert-bangs t)
  '(shm-auto-insert-skeletons t)
