@@ -337,6 +337,7 @@
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save nil)
  '(hindent-style "gibiansky")
+ '(neo-theme (quote arrow))
  '(safe-local-variable-values
    (quote
     ((haskell-indent-spaces . 4)
