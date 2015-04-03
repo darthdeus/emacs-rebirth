@@ -300,6 +300,9 @@
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
+ '(neo-button-face ((t (:foreground "SlateGray3" :underline nil))))
+ '(neo-dir-link-face ((t (:foreground "cornflower blue"))))
+ '(neo-root-dir-face ((t (:foreground "SlateGray3" :weight bold))))
  '(shm-current-face ((t (:background "#efefef"))))
  '(shm-quarantine-face ((t (:inherit font-lock-error)))))
 
