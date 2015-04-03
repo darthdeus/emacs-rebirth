@@ -57,7 +57,7 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(sequential-command rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
+  '(sequential-command clojure-mode cider rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
   flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
   dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode hindent)
   "A list of packages installed at launch")
