@@ -87,16 +87,14 @@
 ;; Lisp settings
 (setq inferior-lisp-program "/usr/local/bin/clisp")
 
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-(add-hook 'racket-mode-hook           #'enable-paredit-mode)
+(add-hook 'racket-mode-hook #'enable-paredit-mode)
 
-(add-hook 'clojure-mode-hook          #'enable-paredit-mode)
-(add-hook 'clojure-mode-hook          #'evil-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
+
+(add-hook 'clojure-mode-hook #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook #'evil-paredit-mode)
+(add-hook 'clojure-mode-hook #'eldoc-mode)
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -104,6 +102,7 @@
 (add-hook 'cider-repl-mode-hook #'subword-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
 
 ;; (require 'evil-smartparens)
 ;; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
