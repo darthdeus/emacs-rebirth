@@ -57,9 +57,12 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(sequential-command clojure-mode cider rainbow-delimiters projectile grizzl yaml-mode smex speedbar sr-speedbar
-  flx flx-ido ido-ubiquitous auto-complete paredit undo-tree ack-and-a-half color-theme-sanityinc-tomorrow
-  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode hindent)
+  '(sequential-command clojure-mode cider rainbow-delimiters
+  projectile grizzl yaml-mode smex speedbar sr-speedbar flx flx-ido
+  ido-ubiquitous paredit undo-tree ack-and-a-half
+  color-theme-sanityinc-tomorrow dirtree ghc gist magit markdown-mode
+  scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode
+  hindent)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
@@ -67,11 +70,7 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; TODO - check if this is always enabled
-(require 'rainbow-delimiters)
 (require 'haskell-mode)
-(require 'ediprolog)
-(global-set-key [f10] 'ediprolog-dwim)
 
 ;; TODO - check how to enable ido for M-x
 (ido-mode 1)
@@ -83,8 +82,9 @@
 (blink-cursor-mode 0)
 
 (global-undo-tree-mode 0)
-(global-auto-complete-mode 1)
+(global-company-mode)
 
+;; Lisp settings
 (setq inferior-lisp-program "/usr/local/bin/clisp")
 
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -94,7 +94,21 @@
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'racket-mode-hook           #'enable-paredit-mode)
+
 (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook          #'evil-paredit-mode)
+
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+(add-hook 'cider-repl-mode-hook #'subword-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+
+;; (require 'evil-smartparens)
+;; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+;; (require 'smartparens-config)
+;; (smartparens-global-mode 1)
 
 ;; Coq
 (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
@@ -302,6 +316,7 @@
  '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(neo-button-face ((t (:foreground "SlateGray3" :underline nil))))
  '(neo-dir-link-face ((t (:foreground "cornflower blue"))))
+ '(neo-file-link-face ((t (:foreground "gray83"))))
  '(neo-root-dir-face ((t (:foreground "SlateGray3" :weight bold))))
  '(shm-current-face ((t (:background "#efefef"))))
  '(shm-quarantine-face ((t (:inherit font-lock-error)))))
