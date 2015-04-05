@@ -33,6 +33,7 @@
 ;; Compatibility package
 (require 'cl)
 
+
 ;; PACKAGE CONFIG
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -79,6 +80,7 @@
 
 (global-undo-tree-mode 0)
 (global-company-mode)
+(setq company-idle-delay 0)
 
 ;; Lisp settings
 (setq inferior-lisp-program "/usr/local/bin/clisp")
@@ -282,6 +284,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-scrollbar-bg ((t (:inherit company-tooltip :background "gray20"))))
+ '(company-tooltip ((t (:background "gray28"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :foreground "SlateGray3"))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-common :foreground "SlateGray2"))))
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
@@ -306,7 +312,7 @@
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
    (quote
-    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+    ("7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "c56d90af9285708041991bbc780a073182cbe91721de17c6e7a8aac1380336b3" "8022cea21aa4daca569aee5c1b875fbb3f3248a5debc6fc8cf5833f2936fbb22" "a0fdc9976885513b03b000b57ddde04621d94c3a08f3042d1f6e2dbc336d25c7" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "e80932ca56b0f109f8545576531d3fc79487ca35a9a9693b62bf30d6d08c9aaf" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(evil-shift-width 4)
  '(haskell-complete-module-preferred
    (quote
@@ -328,6 +334,7 @@
  '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save nil)
  '(hindent-style "gibiansky")
+ '(linum-format " %5i ")
  '(neo-theme (quote arrow))
  '(safe-local-variable-values
    (quote
@@ -339,4 +346,5 @@
  '(shm-auto-insert-bangs t)
  '(shm-auto-insert-skeletons t)
  '(shm-use-presentation-mode t)
- '(truncate-lines nil))
+ '(truncate-lines nil)
+ '(when (not (facep (aref ansi-term-color-vector 0)))))
