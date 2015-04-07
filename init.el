@@ -80,6 +80,7 @@
 
 ;; Lisp settings
 (setq inferior-lisp-program "/usr/local/bin/clisp")
+(setq slime-contribs '(slime-fancy))
 
 (add-hook 'racket-mode-hook #'enable-paredit-mode)
 
@@ -102,10 +103,6 @@
 ;; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
 ;; (require 'smartparens-config)
 ;; (smartparens-global-mode 1)
-
-;; SLIME with Common Lisp
-(setq inferior-lisp-program "/usr/local/bin/clisp")
-(setq slime-contribs '(slime-fancy))
 
 ;; Coq
 ;; (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
