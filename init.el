@@ -63,7 +63,7 @@
   ido-ubiquitous paredit undo-tree ack-and-a-half company
   color-theme-sanityinc-tomorrow dirtree ghc gist magit markdown-mode
   scss-mode slim-mode evil evil-surround yasnippet web-mode
-  hindent)
+  hindent hi2)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
