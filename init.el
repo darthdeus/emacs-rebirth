@@ -4,9 +4,10 @@
 (setq inhibit-splash-screen t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq-default indent-tabs-mode nil)
+
 ;(set-face-attribute 'default nil :height 120)
 (set-face-attribute 'default nil :height 140)
-;; (set-face-attribute 'default nil :height 160)
+;(set-face-attribute 'default nil :height 160)
 ;(set-face-attribute 'default nil :height 180)
 
 (when window-system (scroll-bar-mode 0))
@@ -61,7 +62,7 @@
   projectile grizzl yaml-mode smex speedbar sr-speedbar flx flx-ido
   ido-ubiquitous paredit undo-tree ack-and-a-half company
   color-theme-sanityinc-tomorrow dirtree ghc gist magit markdown-mode
-  scss-mode slim-mode evil evil-surround yasnippet ediprolog web-mode
+  scss-mode slim-mode evil evil-surround yasnippet web-mode
   hindent)
   "A list of packages installed at launch")
 
@@ -109,10 +110,14 @@
 ;; (require 'smartparens-config)
 ;; (smartparens-global-mode 1)
 
+;; SLIME with Common Lisp
+(setq inferior-lisp-program "/usr/local/bin/clisp")
+(setq slime-contribs '(slime-fancy))
+
 ;; Coq
-(load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
-(setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
-(autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+;; (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+;; (setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
+;; (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
@@ -161,6 +166,8 @@
 (require 'evil-surround)
 (evil-mode 1)
 (global-evil-surround-mode 1)
+
+(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
 
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
