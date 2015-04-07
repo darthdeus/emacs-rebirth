@@ -15,8 +15,6 @@
 (when window-system (menu-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
-;(load "/Users/darth/projects/emacs-haskell-config/init.el")
-
 ;; Simple helper to interactively set font size
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
 
