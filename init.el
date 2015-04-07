@@ -31,11 +31,12 @@
 (setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
 ; (setq initial-frame-alist '((top . 70) (left . 220) (width . 110) (height . 40)))
 
+;; Compatibility package
+(require 'cl)
+
 ;; PACKAGE CONFIG
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(require 'cl)
 
 (defvar packages '(haskell-mode))
 
