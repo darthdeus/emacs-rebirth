@@ -140,10 +140,7 @@
                                  (local-set-key (kbd "C-l") 'evil-window-right)
                                  (local-set-key (kbd "C-h") 'evil-window-left)
                                  (local-set-key (kbd "C-j") 'evil-window-down)
-                                 (local-set-key (kbd "C-k") 'evil-window-up)
-                                 ))
-
-(require 'dirtree)
+                                 (local-set-key (kbd "C-k") 'evil-window-up)))
 
 (require 'yasnippet)
 (yas-load-directory "~/.emacs.d/snippets" t)
