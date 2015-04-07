@@ -15,6 +15,9 @@
 (when window-system (menu-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
+;; Default window position
+(setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
+
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
 ;; Simple helper to interactively set font size
@@ -26,9 +29,6 @@
 (setq exec-path (append exec-path '("/Users/darth/.cabal/bin")))
 (setq exec-path (append exec-path '("/Applications/ghc-7.8.3.app/Contents/bin/ghc")))
 (setq eshell-path-env "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin")
-
-;; Default window position
-(setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
 
 ;; Compatibility package
 (require 'cl)
