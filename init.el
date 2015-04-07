@@ -33,9 +33,6 @@
 
 ;; PACKAGE CONFIG
 (require 'package)
-;(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")))
-
-; Apparently needed for the package auto-complete (why?)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (require 'cl)
