@@ -135,9 +135,6 @@
 (global-set-key (kbd "s-?") 'uncomment-region)
 (global-set-key (kbd "C-`") 'haskell-interactive-bring)
 
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.tpl\\'" . web-mode))
-
 ;; Projectile config
 (projectile-global-mode)
 (setq projectile-enable-caching t)
