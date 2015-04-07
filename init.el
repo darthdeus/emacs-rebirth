@@ -227,11 +227,6 @@
 (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 (define-key haskell-mode-map (kbd "C-c i") 'hindent/reformat-decl)
 
-;; (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
-;; (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-;; (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-;; (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
-
 (setq ghc-display-error 'minibuffer)
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
 
