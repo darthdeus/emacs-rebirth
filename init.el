@@ -48,8 +48,6 @@
                                        (symbol-name name)))
                   (require name))))
 
-(load "haskell-mode-autoloads.el")
-
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -70,6 +68,7 @@
     (package-install p)))
 
 (require 'haskell-mode)
+(load "haskell-mode-autoloads.el")
 
 ;; TODO - check how to enable ido for M-x
 (ido-mode 1)
