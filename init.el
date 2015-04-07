@@ -99,15 +99,16 @@
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 
-;; (require 'evil-smartparens)
-;; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
-;; (require 'smartparens-config)
-;; (smartparens-global-mode 1)
+;; TODO - try to use this instead of paredit
+; (require 'evil-smartparens)
+; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
+; (require 'smartparens-config)
+; (smartparens-global-mode 1)
 
-;; Coq
-;; (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
-;; (setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
-;; (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
+;; Coq - temporarily disabled to improve startup time
+; (load-file "/usr/local/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+; (setq auto-mode-alist (cons '("\\.v$" . coq-mode) auto-mode-alist))
+; (autoload 'coq-mode "coq" "Major mode for editing Coq vernacular." t)
 
 (when window-system (scroll-bar-mode 0))
 (when tool-bar-mode (tool-bar-mode 0))
