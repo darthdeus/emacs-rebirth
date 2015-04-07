@@ -235,11 +235,6 @@
 ;; (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
 
 (setq ghc-display-error 'minibuffer)
-
-(defun ac-haskell-mode-setup ()
-  (setq ac-sources '(ac-source-ghc-mod)))
-
-
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
