@@ -15,6 +15,8 @@
 (when window-system (menu-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
+(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
+
 ;; Simple helper to interactively set font size
 (defun set-font-size (size) (set-face-attribute 'default nil :height size))
 
@@ -236,8 +238,6 @@
 
 (setq ghc-display-error 'minibuffer)
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
-
-(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
