@@ -284,10 +284,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-preview ((t (:foreground "wheat"))))
+ '(company-preview-common ((t (:inherit company-preview :foreground "gray40"))))
  '(company-scrollbar-bg ((t (:inherit company-tooltip :background "gray20"))))
- '(company-tooltip ((t (:background "gray28"))))
+ '(company-scrollbar-fg ((t (:background "LightSkyBlue2"))))
+ '(company-tooltip ((t (:background "gray16"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :foreground "SlateGray3"))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-common :foreground "SlateGray2"))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-common :background "gray28" :foreground "SlateGray2"))))
+ '(company-tooltip-selection ((t (:inherit company-tooltip :background "gray28"))))
  '(fringe ((t (:background "#282a2e"))))
  '(ghc-face-error ((t (:underline "gray36"))))
  '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
