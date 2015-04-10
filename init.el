@@ -33,32 +33,27 @@
 ;; Compatibility package
 (require 'cl)
 
+(package-initialize)
 
 ;; PACKAGE CONFIG
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-(defvar packages '(haskell-mode))
-
-(loop for name in packages
-      do (progn (unless (fboundp name)
-                  (add-to-list 'load-path
-                               (concat (file-name-directory (or load-file-name (buffer-file-name)))
-                                       "packages/"
-                                       (symbol-name name)))
-                  (require name))))
-
-(package-initialize)
-
 (when (not package-archive-contents)
   (package-refresh-contents))
 
 (defvar my-packages
-  '(sequential-command clojure-mode cider rainbow-delimiters
-  projectile grizzl yaml-mode smex flx flx-ido ido-ubiquitous paredit
-  undo-tree ack-and-a-half company color-theme-sanityinc-tomorrow
-  dirtree ghc gist magit markdown-mode scss-mode slim-mode evil
-  evil-surround yasnippet web-mode hindent hi2)
+  '(clojure-mode cider rainbow-delimiters paredit
+    evil evil-surround evil-paredit
+    company grizzl projectile undo-tree sequential-command
+    flx flx-ido ido-ubiquitous smex
+    ack-and-a-half
+    color-theme-sanityinc-tomorrow
+    dirtree
+    haskell-mode ghc hindent hi2
+    gist
+    magit
+    yasnippet)
   "A list of packages installed at launch")
 
 ;; Automatically install a pre-defined list of packages
