@@ -85,6 +85,7 @@
 
 (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'eldoc-mode)
+(add-hook 'emacs-lisp-mode-hook #'evil-paredit-mode)
 
 (add-hook 'clojure-mode-hook #'enable-paredit-mode)
 (add-hook 'clojure-mode-hook #'evil-paredit-mode)
@@ -150,8 +151,6 @@
 (require 'evil-surround)
 (evil-mode 1)
 (global-evil-surround-mode 1)
-
-(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
 
 (define-key evil-normal-state-map (kbd ",f") 'projectile-find-file)
 (define-key evil-normal-state-map (kbd ",,") 'evil-buffer)
