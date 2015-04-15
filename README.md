@@ -25,7 +25,7 @@ couldn't yet figure out what the rule here is, as some buffers appear as
 a *menu-ish* one, but still want to define a macro. For that reason I've
 disabled `q` completely when in normal mode.
 
-### Tab completion conflicts between AC and YASnippet
+### Tab completion conflicts between ~AC~ company mode and YASnippet
 
 I'm not really sure how this is suppsed to work, but when in insert mode
 in evil, `<tab>` is bound to `yas-expand-snippet`, which seems correct
