@@ -43,7 +43,7 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(clojure-mode cider rainbow-delimiters paredit
+  '(clojure-mode cider rainbow-delimiters paredit clj-refactor
     evil evil-surround evil-paredit
     company grizzl projectile undo-tree sequential-command
     flx flx-ido ido-ubiquitous smex
