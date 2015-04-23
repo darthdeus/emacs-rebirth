@@ -129,6 +129,7 @@
 (global-set-key (kbd "s-/") 'comment-region)
 (global-set-key (kbd "s-?") 'uncomment-region)
 (global-set-key (kbd "C-`") 'haskell-interactive-bring)
+(global-set-key (kbd "<f1>") 'makey-key-mode-popup-isearch)
 
 ;; Projectile config
 (projectile-global-mode)
