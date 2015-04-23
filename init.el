@@ -7,7 +7,7 @@
 
 (set-face-attribute 'default nil :height 120)
 ;(set-face-attribute 'default nil :height 140)
-;(set-face-attribute 'default nil :height 160)
+;(set-face-attribute 'default nil :height 150)
 ;(set-face-attribute 'default nil :height 180)
 
 (when window-system (scroll-bar-mode 0))
