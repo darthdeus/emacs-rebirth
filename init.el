@@ -11,8 +11,8 @@
 ;(set-face-attribute 'default nil :height 180)
 
 (when window-system (scroll-bar-mode 0))
+(when window-system (menu-bar-mode 1))
 (when tool-bar-mode (tool-bar-mode 0))
-(when window-system (menu-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
 ;; Default window position
