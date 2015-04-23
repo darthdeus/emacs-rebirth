@@ -99,6 +99,10 @@
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-mode-hook #'eldoc-mode)
 
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook #'clj-refactor-mode)
+(cljr-add-keybindings-with-prefix "C-c C-s")
+
 ;; TODO - try to use this instead of paredit
 ; (require 'evil-smartparens)
 ; (add-hook 'clojure-mode-hook #'evil-smartparens-mode)
