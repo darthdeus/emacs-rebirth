@@ -16,7 +16,8 @@
 (when (not (window-system)) (menu-bar-mode 0))
 
 ;; Default window position
-(setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
+(setq initial-frame-alist '((top . 0) (left . 0) (width . 140) (height . 45)))
+;; (setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
