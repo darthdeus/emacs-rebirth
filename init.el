@@ -293,19 +293,19 @@
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-common :background "gray28" :foreground "SlateGray2"))))
  '(company-tooltip-selection ((t (:inherit company-tooltip :background "gray28"))))
  '(fringe ((t (:background "#282a2e"))))
- '(ghc-face-error ((t (:underline "gray36"))))
- '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))))
- '(idris-loaded-region-face ((t (:background "gray8"))))
+ '(ghc-face-error ((t (:underline "gray36"))) t)
+ '(ghc-face-warn ((t (:underline "DarkGoldenrod4"))) t)
+ '(idris-loaded-region-face ((t (:background "gray8"))) t)
  '(mode-line ((t (:background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
  '(mode-line-buffer-id ((t (:foreground "#655969"))))
  '(mode-line-highlight ((t (:foreground "#655969" :box nil :weight bold))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#282a2e" :foreground "gray39" :box (:line-width 2 :color "#282a2e") :weight normal))))
- '(neo-button-face ((t (:foreground "SlateGray3" :underline nil))))
- '(neo-dir-link-face ((t (:foreground "cornflower blue"))))
- '(neo-file-link-face ((t (:foreground "gray83"))))
- '(neo-root-dir-face ((t (:foreground "SlateGray3" :weight bold))))
- '(shm-current-face ((t (:background "#efefef"))))
- '(shm-quarantine-face ((t (:inherit font-lock-error)))))
+ '(neo-button-face ((t (:foreground "SlateGray3" :underline nil))) t)
+ '(neo-dir-link-face ((t (:foreground "cornflower blue"))) t)
+ '(neo-file-link-face ((t (:foreground "gray83"))) t)
+ '(neo-root-dir-face ((t (:foreground "SlateGray3" :weight bold))) t)
+ '(shm-current-face ((t (:background "#efefef"))) t)
+ '(shm-quarantine-face ((t (:inherit font-lock-error))) t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -314,13 +314,9 @@
  ;; If there is more than one, they won't work right.
  '(coq-load-path (quote ("src")))
  '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "c56d90af9285708041991bbc780a073182cbe91721de17c6e7a8aac1380336b3" "8022cea21aa4daca569aee5c1b875fbb3f3248a5debc6fc8cf5833f2936fbb22" "a0fdc9976885513b03b000b57ddde04621d94c3a08f3042d1f6e2dbc336d25c7" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "e80932ca56b0f109f8545576531d3fc79487ca35a9a9693b62bf30d6d08c9aaf" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(custom-safe-themes (quote ("7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "c56d90af9285708041991bbc780a073182cbe91721de17c6e7a8aac1380336b3" "8022cea21aa4daca569aee5c1b875fbb3f3248a5debc6fc8cf5833f2936fbb22" "a0fdc9976885513b03b000b57ddde04621d94c3a08f3042d1f6e2dbc336d25c7" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "e80932ca56b0f109f8545576531d3fc79487ca35a9a9693b62bf30d6d08c9aaf" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
  '(evil-shift-width 4)
- '(haskell-complete-module-preferred
-   (quote
-    ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
+ '(haskell-complete-module-preferred (quote ("Data.ByteString" "Data.ByteString.Lazy" "Data.Conduit" "Data.Function" "Data.List" "Data.Map" "Data.Maybe" "Data.Monoid" "Data.Ord")))
  '(haskell-interactive-mode-eval-mode (quote haskell-mode))
  '(haskell-interactive-mode-eval-pretty nil)
  '(haskell-interactive-mode-include-file-name nil)
@@ -340,15 +336,10 @@
  '(hindent-style "gibiansky")
  '(linum-format " %5i ")
  '(neo-theme (quote arrow))
- '(safe-local-variable-values
-   (quote
-    ((haskell-indent-spaces . 4)
-     (hamlet/basic-offset . 4)
-     (haskell-process-use-ghci . t)
-     (haskell-process-type . cabal-repl))))
+ '(safe-local-variable-values (quote ((haskell-indent-spaces . 4) (hamlet/basic-offset . 4) (haskell-process-use-ghci . t) (haskell-process-type . cabal-repl))))
  '(shell-file-name "/bin/bash")
  '(shm-auto-insert-bangs t)
  '(shm-auto-insert-skeletons t)
  '(shm-use-presentation-mode t)
- '(truncate-lines nil)
+ '(truncate-lines t)
  '(when (not (facep (aref ansi-term-color-vector 0)))))
