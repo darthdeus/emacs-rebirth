@@ -49,7 +49,6 @@
     evil evil-surround evil-paredit
     company grizzl projectile undo-tree sequential-command
     flx flx-ido ido-ubiquitous smex
-    ack-and-a-half
     color-theme-sanityinc-tomorrow
     dirtree
     haskell-mode ghc hindent hi2
