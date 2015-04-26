@@ -11,6 +11,7 @@
 ;(set-face-attribute 'default nil :height 170)
 ;(set-face-attribute 'default nil :height 180)
 
+; TODO - use display-graphic-p instead of window-system
 (when window-system (scroll-bar-mode 0))
 (when window-system (menu-bar-mode 1))
 (when tool-bar-mode (tool-bar-mode 0))
@@ -234,8 +235,6 @@
 
 ;; TODO - check what this actually does. how does it change the original apropos search?
 ;(setq apropos-do-all t)
-
-; use display-graphic-p instead of window-system
 
 ;; Packages and other emacs things that I want to check out
 ; http://www.emacswiki.org/emacs/SequentialCommand
