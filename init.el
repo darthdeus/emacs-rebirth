@@ -17,9 +17,11 @@
 (when tool-bar-mode (tool-bar-mode 0))
 (when (not (window-system)) (menu-bar-mode 0))
 
+;; TODO - check what this actually does. how does it change the original apropos search?
+;(setq apropos-do-all t)
+
 ;; Default window position
 (setq initial-frame-alist '((top . 0) (left . 0) (width . 140) (height . 45)))
-;; (setq initial-frame-alist '((top . 90) (left . 180) (width . 170) (height . 60)))
 
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
@@ -220,8 +222,6 @@
 
 (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-;; Temporarily disabled since ghc-mod provides the same functionality but in a better way
-;; (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
 (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
 (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
@@ -232,9 +232,6 @@
 
 (setq ghc-display-error 'minibuffer)
 (setq ghc-hlint-options '("-fno-warn-unused-do-bind"))
-
-;; TODO - check what this actually does. how does it change the original apropos search?
-;(setq apropos-do-all t)
 
 ;; Packages and other emacs things that I want to check out
 ; http://www.emacswiki.org/emacs/SequentialCommand
