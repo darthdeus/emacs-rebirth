@@ -78,7 +78,7 @@
 (blink-cursor-mode 0)
 
 (global-undo-tree-mode 0)
-(global-company-mode)
+(global-company-mode 1)
 (setq company-idle-delay 0)
 
 ;; Lisp settings
